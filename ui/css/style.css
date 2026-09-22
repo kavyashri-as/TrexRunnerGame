@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+.game-container {
+  position: relative;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  padding: 24px;
+  width: 940px;
+  max-width: 95vw;
+}
+
+.hud {
+  display: flex;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-bottom: 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: bold;
+  color: #535353;
+}
+
+.hud-item {
+  display: flex;
+  gap: 8px;
+  align-items: baseline;
+}
+
+.hud-label {
+  font-size: 14px;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.hud-value {
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 900 / 300;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  background: #e0f6ff;
+  cursor: pointer;
+}
+
+.overlay {
+  position: absolute;
+  inset: 24px 24px auto 24px;
+  top: 60px;
+  bottom: 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(2px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay h1 {
+  margin: 0;
+  color: #333;
+  font-size: 32px;
+}
+
+.overlay p {
+  margin: 0;
+  color: #555;
+}
+
+.restart-btn {
+  margin-top: 8px;
+  padding: 10px 28px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border: none;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 8px 20px rgba(34, 197, 94, 0.35);
+}
+
+.restart-btn:hover {
+  transform: translateY(-2px);
+}
+
+.instructions {
+  text-align: center;
+  margin-top: 16px;
+  color: #64748b;
+  font-size: 14px;
+}
+
+kbd {
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 2px 8px;
+  font-family: monospace;
+}

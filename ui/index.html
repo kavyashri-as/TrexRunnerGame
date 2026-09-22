@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>T-Rex Runner</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <header class="hud">
+      <div class="hud-item">
+        <span class="hud-label">HI</span>
+        <span id="high-score" class="hud-value">00000</span>
+      </div>
+      <div class="hud-item">
+        <span class="hud-label">SCORE</span>
+        <span id="score" class="hud-value">00000</span>
+      </div>
+    </header>
+
+    <canvas id="game-canvas" width="900" height="300"></canvas>
+
+    <div id="start-overlay" class="overlay">
+      <h1>T-Rex Runner</h1>
+      <p>Press Space, click the canvas, or hit Start to play</p>
+      <button id="start-btn" class="restart-btn" type="button">Start</button>
+    </div>
+
+    <div id="overlay" class="overlay hidden">
+      <h1 id="overlay-title">Game Over</h1>
+      <p id="overlay-subtitle">Press Space or click Restart to play again</p>
+      <button id="restart-btn" class="restart-btn" type="button">Restart</button>
+    </div>
+
+    <p class="instructions">Press <kbd>Space</kbd> or <kbd>&uarr;</kbd> to jump</p>
+  </div>
+
+  <script src="js/ApiClient.js"></script>
+  <script src="js/ScoreManager.js"></script>
+  <script src="js/Dino.js"></script>
+  <script src="js/Obstacle.js"></script>
+  <script src="js/Cloud.js"></script>
+  <script src="js/Ground.js"></script>
+  <script src="js/Game.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

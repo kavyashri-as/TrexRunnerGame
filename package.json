@@ -1,0 +1,30 @@
+{
+  "name": "trex-runner-game",
+  "version": "1.0.0",
+  "description": "Chrome Dino-inspired T-Rex Runner game with a Node/Express API and vanilla JS Canvas frontend.",
+  "private": true,
+  "main": "api/server.js",
+  "scripts": {
+    "start:api": "node api/server.js",
+    "start:ui": "node ui/server.js",
+    "start": "concurrently \"npm:start:api\" \"npm:start:ui\"",
+    "test": "jest tests/unit tests/api",
+    "test:unit": "jest tests/unit",
+    "test:api": "jest tests/api",
+    "test:e2e": "playwright test",
+    "test:all": "npm run test && npm run test:e2e"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.47.0",
+    "concurrently": "^8.2.2",
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
