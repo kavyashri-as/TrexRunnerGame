@@ -9,6 +9,7 @@ const DEFAULT_DATA = {
   gamesPlayed: 0,
   totalScore: 0,
   lastPlayed: null,
+  gamesByDifficulty: { easy: 0, medium: 0, hard: 0 },
 };
 
 function ensureDbFile() {
@@ -40,12 +41,13 @@ function getHighScore() {
   return readData().highScore;
 }
 
-function submitScore(score) {
+function submitScore(score, difficulty = 'medium') {
   const data = readData();
   const numericScore = Number(score) || 0;
   data.gamesPlayed += 1;
   data.totalScore += numericScore;
   data.lastPlayed = new Date().toISOString();
+  data.gamesByDifficulty[difficulty] += 1;
 
   const isNewHighScore = numericScore > data.highScore;
   if (isNewHighScore) {
@@ -65,6 +67,7 @@ function getStats() {
     totalScore: data.totalScore,
     averageScore,
     lastPlayed: data.lastPlayed,
+    gamesByDifficulty: data.gamesByDifficulty,
   };
 }
 

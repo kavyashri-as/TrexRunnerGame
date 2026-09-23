@@ -23,6 +23,7 @@ describe('GET /api/stats', () => {
       highScore: 0,
       totalScore: 0,
       averageScore: 0,
+      gamesByDifficulty: { easy: 0, medium: 0, hard: 0 },
     });
   });
 
@@ -36,5 +37,14 @@ describe('GET /api/stats', () => {
     expect(res.body.totalScore).toBe(300);
     expect(res.body.averageScore).toBe(150);
     expect(res.body.lastPlayed).not.toBeNull();
+  });
+
+  test('tallies gamesByDifficulty per submission', async () => {
+    await request(app).post('/api/highscore').send({ score: 100, difficulty: 'easy' });
+    await request(app).post('/api/highscore').send({ score: 200, difficulty: 'hard' });
+    await request(app).post('/api/highscore').send({ score: 150 });
+
+    const res = await request(app).get('/api/stats');
+    expect(res.body.gamesByDifficulty).toEqual({ easy: 1, medium: 1, hard: 1 });
   });
 });

@@ -47,4 +47,9 @@ describe('Highscore API', () => {
     const res = await request(app).post('/api/highscore').send({});
     expect(res.status).toBe(400);
   });
+
+  test('POST /api/highscore rejects an unknown difficulty', async () => {
+    const res = await request(app).post('/api/highscore').send({ score: 50, difficulty: 'nightmare' });
+    expect(res.status).toBe(400);
+  });
 });
