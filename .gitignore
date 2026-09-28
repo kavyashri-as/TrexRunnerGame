@@ -4,3 +4,4 @@ npm-debug.log*
 playwright-report/
 test-results/
 coverage/
+logs/*.log

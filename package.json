@@ -15,6 +15,7 @@
     "test:all": "npm run test && npm run test:e2e"
   },
   "dependencies": {
+    "@github/copilot-sdk": "^1.0.14",
     "cors": "^2.8.5",
     "express": "^4.19.2"
   },

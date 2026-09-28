@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "disableAllHooks": false,
+  "hooks": {
+    "sessionStart": [
+      {
+        "type": "command",
+        "bash": "mkdir -p logs && echo \"[TrexGame hook] sessionStart fired at $(date)\" >> logs/agent-sessions.log",
+        "powershell": "New-Item -ItemType Directory -Force -Path logs | Out-Null; Add-Content -Path logs/agent-sessions.log -Value \"[TrexGame hook] sessionStart fired at $(Get-Date)\"",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ],
+    "postToolUse": [
+      {
+        "type": "command",
+        "bash": "mkdir -p logs && echo \"[TrexGame hook] postToolUse fired at $(date)\" >> logs/agent-sessions.log && npm run test:unit --silent",
+        "powershell": "New-Item -ItemType Directory -Force -Path logs | Out-Null; Add-Content -Path logs/agent-sessions.log -Value \"[TrexGame hook] postToolUse fired at $(Get-Date)\"; npm run test:unit --silent",
+        "cwd": ".",
+        "timeoutSec": 60
+      }
+    ],
+    "postToolUseFailure": [
+      {
+        "type": "command",
+        "bash": "mkdir -p logs && echo \"[TrexGame hook] postToolUseFailure fired at $(date)\" >> logs/agent-sessions.log",
+        "powershell": "New-Item -ItemType Directory -Force -Path logs | Out-Null; Add-Content -Path logs/agent-sessions.log -Value \"[TrexGame hook] postToolUseFailure fired at $(Get-Date)\"",
+        "cwd": ".",
+        "timeoutSec": 10
+      }
+    ]
+  }
+}

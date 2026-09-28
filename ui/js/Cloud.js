@@ -2,12 +2,15 @@
  * Decorative background cloud with parallax scrolling (slower than the ground).
  */
 class Cloud {
+  static MIN_PARALLAX_SPEED = 15; // px/sec
+  static PARALLAX_SPEED_VARIANCE = 10; // px/sec, added on top of MIN_PARALLAX_SPEED
+
   constructor(x, y) {
     this.x = x;
     this.y = y;
     this.width = 60 + Math.random() * 30;
     this.height = 20;
-    this.speed = 15 + Math.random() * 10;
+    this.speed = Cloud.MIN_PARALLAX_SPEED + Math.random() * Cloud.PARALLAX_SPEED_VARIANCE;
   }
 
   update(deltaTime, canvasWidth) {
